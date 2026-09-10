@@ -276,14 +276,13 @@ function App() {
     }
   }, [weekChosen, projectWeekChosen])
 
-  console.log(projectMonthChosen.pending)
   google.charts.load("current", { packages: ["corechart"] });
   google.charts.setOnLoadCallback(drawChart2);
   function drawChart2() {
     var data = google.visualization.arrayToDataTable([
       ['Project', 'Porcentage'],
-      ['Pending', projectMonthChosen.pending],
-      ['Complete', projectMonthChosen.complete],
+      ['Pending', projectMonthChosen?.pending ?? 50],
+      ['Complete', projectMonthChosen?.complete ?? 50],
     ]);
 
     var options = {
