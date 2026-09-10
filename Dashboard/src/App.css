@@ -15,12 +15,14 @@
     flex-direction: column !important;
     justify-content: space-between !important;
     align-items: flex-start;
-    min-height: 95vh;
+    min-height: 111.5vh;
+    
 }
 
 .card-3 {
     min-height: 75vh;
-    max-height: 75vh;
+    max-height: 95vh;
+    margin-bottom: 10px !important;
 }
 
 .card-2 {
@@ -117,8 +119,9 @@
 
 }
 
-.button-new-project {
+.button-new-project, .button-new-member {
     background-color: transparent !important;
     color: #063621 !important;
     border-radius: 30px !important;
 }
+
