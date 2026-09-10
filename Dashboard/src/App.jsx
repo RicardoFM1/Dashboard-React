@@ -357,9 +357,10 @@ function App() {
                 </FormGroup>
               </div>
 
-              <div className='d-flex gap-4 align-items-center'>
-                <MdOutlineEmail size={24} />
-                <FaRegBell size={24} />
+              <div className='d-flex align-items-center'>
+                <Button aria-label='See messages' className='bg-transparent border-0'>
+                  <MdOutlineEmail size={24} color='black' /></Button>
+                <Button aria-label='See notifications' className='bg-transparent border-0 me-2'><FaRegBell color='black' size={24} /></Button>
                 <div className='d-flex gap-3'>
                   <img src='https://plus.unsplash.com/premium_photo-1739786996022-5ed5b56834e2?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' className='image-profile' alt='Image profile' />
                   <div>
