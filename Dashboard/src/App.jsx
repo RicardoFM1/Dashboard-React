@@ -142,6 +142,7 @@ function App() {
                       <CiSearch color='black' size={24} />
                     </InputGroup.Text>
                     <FormControl
+                    aria-label='Search up tasks'
                       placeholder='Search tasks'
                     />
                   </InputGroup>
