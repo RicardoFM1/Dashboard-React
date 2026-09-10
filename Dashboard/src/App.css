@@ -16,12 +16,11 @@
     justify-content: space-between !important;
     align-items: flex-start;
     min-height: 111.5vh;
-    
 }
 
 .card-3 {
     min-height: 75vh;
-    max-height: 95vh;
+  
     margin-bottom: 10px !important;
 }
 
@@ -30,6 +29,16 @@
     flex-direction: row !important;
     justify-content: space-between;
 }
+.card-project{
+   overflow-y: auto;
+    max-height: 260px;
+}
+
+.row-middle{
+    max-height: 200px;
+}
+
+
 
 .botoes-nav {
     display: flex !important;

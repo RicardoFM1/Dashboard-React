@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { Button, Card, Col, Container, FormControl, FormGroup, InputGroup, ListGroup, ListGroupItem, Row, Stack } from 'react-bootstrap'
+import { Button, Card, Col, Container, Dropdown, FormControl, FormGroup, FormSelect, InputGroup, ListGroup, ListGroupItem, Row, Stack } from 'react-bootstrap'
 import { LuLayoutDashboard } from "react-icons/lu";
 import { GoPlus, GoTasklist } from "react-icons/go";
 import { FaRegCalendar } from "react-icons/fa6";
@@ -16,29 +16,151 @@ import { MdOutlineVideoCameraFront } from "react-icons/md";
 import { useTimer } from 'react-timer-hook'
 
 function App() {
+  const [projects, setProjects] = useState({
+    total_projects: 44,
+    ended_projects: 49,
+    running_projects: 65,
+    pending_projects: 4,
+    week1: [
+      {
+        name: 'Sunday',
+        value: 38
+      },
+      {
+        name: 'Monday',
+        value: 39
+      },
+      {
+        name: 'Tuesday',
+        value: 38
+      },
+      {
+        name: 'Wednesday',
+        value: 38
+      },
+      {
+        name: 'Thursday',
+        value: 38
+      },
+      {
+        name: 'Friday',
+        value: 38
+      },
+      {
+        name: 'Saturday',
+        value: 34
+      },
+    ],
+    week2: [
+      {
+        name: 'Sunday',
+        value: 51
+      },
+      {
+        name: 'Monday',
+        value: 68
+      },
+      {
+        name: 'Tuesday',
+        value: 38
+      },
+      {
+        name: 'Wednesday',
+        value: 38
+      },
+      {
+        name: 'Thursday',
+        value: 38
+      },
+      {
+        name: 'Friday',
+        value: 38
+      },
+      {
+        name: 'Saturday',
+        value: 34
+      },
+    ],
+    week3: [
+      {
+        name: 'Sunday',
+        value: 51
+      },
+      {
+        name: 'Monday',
+        value: 69
+      },
+      {
+        name: 'Tuesday',
+        value: 70
+      },
+      {
+        name: 'Wednesday',
+        value: 44
+      },
+      {
+        name: 'Thursday',
+        value: 88
+      },
+      {
+        name: 'Friday',
+        value: 39
+      },
+      {
+        name: 'Saturday',
+        value: 14
+      },
+    ],
+    week4: [
+      {
+        name: 'Sunday',
+        value: 51
+      },
+      {
+        name: 'Monday',
+        value: 18
+      },
+      {
+        name: 'Tuesday',
+        value: 22
+      },
+      {
+        name: 'Wednesday',
+        value: 92
+      },
+      {
+        name: 'Thursday',
+        value: 74
+      },
+      {
+        name: 'Friday',
+        value: 18
+      },
+      {
+        name: 'Saturday',
+        value: 34
+      },
+    ]
+  })
 
+  const [weekChosen, setWeekChosen] = useState(projects.week1)
 
   google.charts.load('current', { 'packages': ['corechart'] });
-
-
   google.charts.setOnLoadCallback(drawChart);
-
-
+  console.log(weekChosen)
   function drawChart() {
-
 
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Week days');
-    data.addColumn('number', 'Porcentage');
+    data.addColumn('number', 'Percentage');
     data.addRows([
-      ['Sunday', 30],
-      ['Monday', 12],
-      ['Tuesday', 18],
-      ['Wednesday', 29],
-      ['Thursday', 32],
-      ['Friday', 10],
-      ['Saturday', 64],
-
+      [weekChosen[0].name, weekChosen[0].value],
+      [weekChosen[1].name, weekChosen[1].value],
+      [weekChosen[2].name, weekChosen[2].value],
+      [weekChosen[3].name, weekChosen[3].value],
+      [weekChosen[4].name, weekChosen[4].value],
+      [weekChosen[5].name, weekChosen[5].value],
+      [weekChosen[6].name, weekChosen[6].value]
     ]);
 
 
@@ -72,39 +194,7 @@ function App() {
     chart.draw(data, options);
   }
 
-  // function Timer({ expiryTimestamp }) {
-  //   const {
-  //     totalSeconds,
-  //     milliseconds,
-  //     seconds,
-  //     minutes,
-  //     hours,
-  //     days,
-  //     isRunning,
-  //     start,
-  //     pause,
-  //     resume,
-  //     restart,
-  //   } = useTimer({ expiryTimestamp, onExpire: () => console.warn('onExpire called'), interval: 20 })
-  //   return (
-  //     <div style={{ textAlign: 'center' }}>
 
-  //       <div style={{ fontSize: '100px' }}>
-  //        <span>{seconds}</span>:<span>{milliseconds}</span>
-  //       </div>
-  //       <p>{isRunning ? 'Running' : 'Not running'}</p>
-  //       <button onClick={start}>Start</button>
-  //       <button onClick={pause}>Pause</button>
-  //       <button onClick={resume}>Resume</button>
-  //       <button onClick={() => {
-
-  //         const time = new Date();
-  //         time.setSeconds(time.getSeconds() + 300);
-  //         restart(time)
-  //       }}>Restart</button>
-  //     </div>
-  //   );
-  // }
 
   const time = new Date();
   time.setSeconds(time.getSeconds() + 600);
@@ -221,7 +311,7 @@ function App() {
                 </div>
 
               </section>
-              <Row>
+              <Row className='row-middle'>
                 <Col>
 
 
@@ -286,7 +376,23 @@ function App() {
               <Row className='mt-3'>
                 <Col className='col-6 '>
                   <Card className='p-3'>
-                    <span className='fs-4'>Project Analytics (%)</span>
+                    <div className='d-flex gap-3'>
+
+                      <span className='fs-4'>Project Analytics (%)</span>
+
+                      <Dropdown>
+                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                          Order by week
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                          <Dropdown.Item onClick={() => setWeekChosen(projects.week1)} >Week 1</Dropdown.Item>
+                          <Dropdown.Item onClick={() => setWeekChosen(projects.week2)} >Week 2</Dropdown.Item>
+                          <Dropdown.Item onClick={() => setWeekChosen(projects.week3)} >Week 3</Dropdown.Item>
+                          <Dropdown.Item onClick={() => setWeekChosen(projects.week4)} >Week 4</Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>
+                    </div>
 
                     <div id='chart_div'></div>
                   </Card>
@@ -302,8 +408,8 @@ function App() {
                 </Col>
 
                 <Col>
-                  <Card className='p-3 d-flex gap-3'>
-                    <div className='d-flex justify-content-between'>
+                  <Card className='p-3 d-flex gap-3 card-project'>
+                    <div className='d-flex justify-content-between div-project'>
 
                       <span className='fs-4'>Project</span>
                       <Button aria-label='New project' className='button-new-project'>+ New</Button>
