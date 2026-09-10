@@ -12,9 +12,45 @@ import { IoLogOutOutline } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaRegBell } from "react-icons/fa";
+import { MdOutlineVideoCameraFront } from "react-icons/md";
 
 function App() {
 
+  google.charts.load('current', { 'packages': ['corechart'] });
+
+
+  google.charts.setOnLoadCallback(drawChart);
+
+
+  function drawChart() {
+
+    // Create the data table.
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Week days');
+    data.addColumn('number', 'Porcentage');
+    data.addRows([
+      ['Sunday', 30],
+      ['Monday', 12],
+      ['Tuesday', 18],
+      ['Wednesday', 29],
+      ['Thursday', 32],
+      ['Friday', 10],
+      ['Saturday', 64],
+
+    ]);
+
+    // Set chart options
+    var options = {
+      'title': '',
+      'width': 600,
+      'height': 200
+
+    };
+
+    // Instantiate and draw our chart, passing in some options.
+    var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+  }
 
   return (
     <>
@@ -119,8 +155,8 @@ function App() {
                 <div>
 
                   <Stack direction='horizontal' gap={4}>
-                    <Button className='button-add-project'><GoPlus size={20} /> Add project</Button>
-                    <Button className='button-import-data'>Import Data</Button>
+                    <Button aria-label='Add project' className='button-add-project'><GoPlus size={20} /> Add project</Button>
+                    <Button aria-label='Import data' className='button-import-data'>Import Data</Button>
 
                   </Stack>
                 </div>
@@ -190,20 +226,52 @@ function App() {
               </Row>
               <Row className='mt-3'>
                 <Col className='col-6 '>
-                  <Card className='px-3 pt-3'>Project Analytics</Card>
+                  <Card className='p-3'>
+                    <span className='fs-4'>Project Analytics (%)</span>
+
+                    <div id='chart_div'></div>
+                  </Card>
                 </Col>
                 <Col>
-                  <Card>Reminders</Card>
+                  <Card className='p-3'>
+                    <p className='fs-4'>Reminders</p>
+                    <p className='fs-3 text-custom-color'>Meeting with arc company</p>
+                    <Button aria-label='Start a meeting' className='button-meeting'><MdOutlineVideoCameraFront className='me-2' color='white' size={20} /> Start meeting</Button>
+                  </Card>
                 </Col>
 
                 <Col>
-                  <Card>Project</Card>
+                  <Card className='p-3 d-flex gap-3'>
+                    <div className='d-flex justify-content-between'>
+
+                      <span className='fs-4'>Project</span>
+                      <Button aria-label='New project' className='button-new-project'>+ New</Button>
+                    </div>
+                    <div>
+
+                      <div>
+                        <p className='mb-0 fw-semibold'>Develop systems</p>
+                        <p className='text-secondary'>Develop systems with auth</p>
+
+                      </div>
+
+                      <div>
+                        <p className='mb-0 fw-semibold'>Integrate auth system</p>
+                        <p className='text-secondary'>Integrate user authentication</p>
+
+                      </div>
+
+                      <div>
+                        <p className='mb-0 fw-semibold'>Develop systems</p>
+                        <p className='text-secondary'>Develop systems with auth</p>
+
+                      </div>
+                    </div>
+                  </Card>
                 </Col>
               </Row>
             </Card>
           </Col>
-
-
 
         </Row>
 

@@ -86,15 +86,39 @@
     background: linear-gradient(90deg, #1A6241 0%, #347840 100%) !important;
     border: none !important;
     color: white;
-}
-
-.card-1-dashboard{
-    background: linear-gradient(200deg, #1A6241 0%, #347840 100%) !important;
-    color: white !important;
+    border-radius: 30px !important;
+    padding: 16px !important;
+    font-size: 18px !important;
 }
 
 .button-import-data {
     border: 1px solid #1A6241 !important;
     background-color: transparent !important;
     color: #1A6241 !important;
+    border-radius: 30px !important;
+    padding: 16px !important;
+    font-size: 18px !important;
+}
+
+
+.card-1-dashboard {
+    background: linear-gradient(200deg, #1A6241 0%, #347840 100%) !important;
+    color: white !important;
+}
+
+
+
+.text-custom-color {
+    color: #1e774f !important;
+}
+
+.button-meeting {
+    background: linear-gradient(200deg, #1A6241 0%, #347840 100%) !important;
+
+}
+
+.button-new-project {
+    background-color: transparent !important;
+    color: #063621 !important;
+    border-radius: 30px !important;
 }
