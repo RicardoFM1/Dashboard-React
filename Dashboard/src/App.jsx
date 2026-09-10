@@ -139,15 +139,85 @@ function App() {
       {
         name: 'Saturday',
         value: 34
-      },
-    ]
+      }
+    ],
+
+    january: {
+      pending: 25,
+      complete: 75
+    },
+
+    february: {
+
+      pending: 75,
+      complete: 25
+    },
+
+    march: {
+      pending: 90,
+      complete: 10
+    },
+
+    april: {
+      pending: 10,
+      complete: 90
+    },
+
+    may: {
+      pending: 70,
+      complete: 30
+    },
+
+    june: {
+      pending: 86,
+      complete: 14
+    },
+
+    july: {
+      pending: 1,
+      complete: 99
+    },
+
+    august: {
+      pending: 12,
+      complete: 82
+    },
+
+    september: {
+      pending: 40,
+      complete: 60
+    },
+
+    october: {
+      pending: 20,
+      complete: 80
+    },
+
+    november: {
+      pending: 30,
+      complete: 70
+    },
+
+    december: {
+      pending: 23,
+      complete: 77
+    }
+
   })
   const [weekChosen, setWeekChosen] = useState("week1")
   const [projectWeekChosen, setProjectWeekChosen] = useState(projects[weekChosen])
+  const [monthChosen, setMonthChosen] = useState("march")
+  const [projectMonthChosen, setProjectMonthChosen] = useState(projects[monthChosen])
 
   useEffect(() => {
     setProjectWeekChosen(projects[weekChosen])
   }, [weekChosen])
+
+  useEffect(() => {
+    console.log(monthChosen)
+    setProjectMonthChosen(projects[monthChosen])
+
+  }, [monthChosen])
 
   useEffect(() => {
 
@@ -184,19 +254,19 @@ function App() {
     }
   }, [weekChosen, projectWeekChosen])
 
-
+  console.log(projectMonthChosen.pending)
   google.charts.load("current", { packages: ["corechart"] });
   google.charts.setOnLoadCallback(drawChart2);
   function drawChart2() {
     var data = google.visualization.arrayToDataTable([
       ['Project', 'Porcentage'],
-      ['Pending', 25],
-      ['Complete', 75],
+      ['Pending', projectMonthChosen.pending],
+      ['Complete', projectMonthChosen.complete],
     ]);
 
     var options = {
       title: '',
-      pieHole: 0.4,
+      pieHole: 0.6,
     };
 
     var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
@@ -499,9 +569,32 @@ function App() {
                 </Col>
                 <Col className='pb-2' >
                   <Card className='p-3 '>
-                    <span className='fs-4'>
-                      Project Progress
-                    </span>
+                    <div>
+
+                      <span className='fs-4'>
+                        Project Progress
+                      </span>
+                      <FormGroup className='mt-3'>
+                        <FormSelect
+                          value={monthChosen}
+                          onChange={(e) => setMonthChosen(e.target.value)}
+                        >
+                          <option value="">Order by month</option>
+                          <option value="january">January</option>
+                          <option value="february">February</option>
+                          <option value="march">March</option>
+                          <option value="april">April</option>
+                          <option value="may">May</option>
+                          <option value="june">June</option>
+                          <option value="july">July</option>
+                          <option value="august">August</option>
+                          <option value="september">September</option>
+                          <option value="october">October</option>
+                          <option value="november">November</option>
+                          <option value="december">December</option>
+                        </FormSelect>
+                      </FormGroup>
+                    </div>
                     <div id='donutchart'></div>
                   </Card>
                 </Col>
