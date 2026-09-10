@@ -1,10 +1,10 @@
 # Dashboard
 
-# Link figma:
+## Link figma:
 
 https://www.figma.com/proto/tf3G0vA1XxttoqiRe2PMKg/Dashboard?node-id=0-1&t=tVIj5vOqYSbJzbtI-1
 
-# Ferramentas utilizdas:
+## Ferramentas utilizdas:
 
 ```json
 "bootstrap": "^5.3.8",
@@ -16,7 +16,7 @@ https://www.figma.com/proto/tf3G0vA1XxttoqiRe2PMKg/Dashboard?node-id=0-1&t=tVIj5
 
 ---
 
-# Como rodar:
+## Como rodar:
 
 ```bash
 git clone https://github.com/RicardoFM1/Dashboard-React.git
@@ -35,7 +35,7 @@ npm run dev
 
 ---
 
-# Dificuldades que encontrei:
+## Dificuldades que encontrei:
 
 <p>
 
@@ -44,7 +44,7 @@ npm run dev
 
 - Json criado na hora e a dificuldade para iterar
 
-# Facilidades:
+## Facilidades:
 
 <p>
 
@@ -61,7 +61,7 @@ npm run dev
 ---
 
 
-# O que fiz:
+## O que fiz:
 
 - Implementei o frontend do Donezo (Referência de site)
   
