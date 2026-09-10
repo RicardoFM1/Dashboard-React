@@ -399,7 +399,7 @@ function App() {
                       Total Projects
                     </Card.Title>
                     <Card.Body className='px-3'>
-                      <span className='fs-1'>24</span>
+                      <span className='fs-1'>{projects.total_projects}</span>
                     </Card.Body>
                     <Card.Footer className='border-top-0 bg-transparent px-3'>
                       <span className='text-custom-green'>Increased from last month</span>
@@ -415,7 +415,7 @@ function App() {
                       Ended Projects
                     </Card.Title>
                     <Card.Body className='px-3'>
-                      <span className='fs-1'>10</span>
+                      <span className='fs-1'>{projects.ended_projects}</span>
                     </Card.Body>
                     <Card.Footer className='border-top-0 bg-transparent px-3'>
                       <span className='text-custom-green'>Increased from last month</span>
@@ -429,7 +429,7 @@ function App() {
                       Running Projects
                     </Card.Title>
                     <Card.Body className='px-3'>
-                      <span className='fs-1'>12</span>
+                      <span className='fs-1'>{projects.running_projects}</span>
                     </Card.Body>
                     <Card.Footer className='border-top-0 bg-transparent px-3'>
                       <span className='text-custom-green'>Increased from last month</span>
@@ -443,7 +443,7 @@ function App() {
                       Pending Projects
                     </Card.Title>
                     <Card.Body className='px-3'>
-                      <span className='fs-1'>2</span>
+                      <span className='fs-1'>{projects.pending_projects}</span>
                     </Card.Body>
                     <Card.Footer className='border-top-0 bg-transparent px-3'>
                       <span className='text-custom-green'>On discuss</span>

@@ -32,4 +32,39 @@ npm i
 npm run dev
 ```
 
+
 ---
+
+# Dificuldades que encontrei:
+
+<p>
+
+- Ordenação dinâmica nos gráficos
+<p>
+
+- Json criado na hora e a dificuldade para iterar
+
+# Facilidades:
+
+<p>
+
+- Grid do react-bootstrap (muito interessante de utilizar, fácil e rápido)
+
+<p>
+
+- Navbar e header
+<p>
+
+- Análise na referência como programador (olhar de programador), ficou muito mais fácil de implementar as coisas
+
+
+---
+
+
+# O que fiz:
+
+- Implementei o frontend do Donezo (Referência de site)
+  
+<p>
+
+- Implementei informações dinâmicas para o dashboard
