@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import { Button, Card, Col, Container, Dropdown, FormControl, FormGroup, FormSelect, InputGroup, ListGroup, ListGroupItem, Row, Stack } from 'react-bootstrap'
 import { LuLayoutDashboard } from "react-icons/lu";
@@ -142,39 +142,48 @@ function App() {
       },
     ]
   })
+  const [weekChosen, setWeekChosen] = useState("week1")
+  const [projectWeekChosen, setProjectWeekChosen] = useState(projects[weekChosen])
 
-  const [weekChosen, setWeekChosen] = useState(projects.week1)
+  useEffect(() => {
+    setProjectWeekChosen(projects[weekChosen])
+  }, [weekChosen])
 
-  google.charts.load('current', { 'packages': ['corechart'] });
-  google.charts.setOnLoadCallback(drawChart);
-  console.log(weekChosen)
-  function drawChart() {
-
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Week days');
-    data.addColumn('number', 'Percentage');
-    data.addRows([
-      [weekChosen[0].name, weekChosen[0].value],
-      [weekChosen[1].name, weekChosen[1].value],
-      [weekChosen[2].name, weekChosen[2].value],
-      [weekChosen[3].name, weekChosen[3].value],
-      [weekChosen[4].name, weekChosen[4].value],
-      [weekChosen[5].name, weekChosen[5].value],
-      [weekChosen[6].name, weekChosen[6].value]
-    ]);
+  useEffect(() => {
 
 
-    var options = {
-      'title': '',
-      'width': 500,
-      'height': 200
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+    console.log(projectWeekChosen, 'project week')
+    function drawChart() {
 
-    };
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Week days');
+      data.addColumn('number', 'Percentage');
+      data.addRows([
+        [projectWeekChosen[0].name, projectWeekChosen[0].value],
+        [projectWeekChosen[1].name, projectWeekChosen[1].value],
+        [projectWeekChosen[2].name, projectWeekChosen[2].value],
+        [projectWeekChosen[3].name, projectWeekChosen[3].value],
+        [projectWeekChosen[4].name, projectWeekChosen[4].value],
+        [projectWeekChosen[5].name, projectWeekChosen[5].value],
+        [projectWeekChosen[6].name, projectWeekChosen[6].value]
+      ]);
 
 
-    var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-    chart.draw(data, options);
-  }
+      var options = {
+        'title': '',
+        'width': 500,
+        'height': 200
+
+      };
+
+
+      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+  }, [weekChosen, projectWeekChosen])
+
 
   google.charts.load("current", { packages: ["corechart"] });
   google.charts.setOnLoadCallback(drawChart2);
@@ -380,18 +389,20 @@ function App() {
 
                       <span className='fs-4'>Project Analytics (%)</span>
 
-                      <Dropdown>
-                        <Dropdown.Toggle variant="success" id="dropdown-basic">
-                          Order by week
-                        </Dropdown.Toggle>
+                      <FormGroup>
+                        <FormSelect
+                          value={weekChosen}
+                          onChange={(e) => setWeekChosen(e.target.value)}
+                        >
+                          <option value="">Order by week</option>
+                          <option value="week1">Week 1</option>
+                          <option value="week2">Week 2</option>
+                          <option value="week3">Week 3</option>
+                          <option value="week4">Week 4</option>
 
-                        <Dropdown.Menu>
-                          <Dropdown.Item onClick={() => setWeekChosen(projects.week1)} >Week 1</Dropdown.Item>
-                          <Dropdown.Item onClick={() => setWeekChosen(projects.week2)} >Week 2</Dropdown.Item>
-                          <Dropdown.Item onClick={() => setWeekChosen(projects.week3)} >Week 3</Dropdown.Item>
-                          <Dropdown.Item onClick={() => setWeekChosen(projects.week4)} >Week 4</Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown>
+
+                        </FormSelect>
+                      </FormGroup>
                     </div>
 
                     <div id='chart_div'></div>
