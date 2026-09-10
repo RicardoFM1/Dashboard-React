@@ -21,6 +21,28 @@ function App() {
     ended_projects: 49,
     running_projects: 65,
     pending_projects: 4,
+    projects: [
+      {
+        title: 'Develop systems 1',
+        description: 'Develop auth systems'
+      },
+      {
+        title: 'Develop systems 2',
+        description: 'Develop auth systems'
+      },
+      {
+        title: 'Develop systems 3',
+        description: 'Develop auth systems'
+      },
+      {
+        title: 'Develop systems 4',
+        description: 'Develop auth systems'
+      },
+      {
+        title: 'Develop systems 5',
+        description: 'Develop auth systems'
+      }
+    ],
     week1: [
       {
         name: 'Sunday',
@@ -491,37 +513,28 @@ function App() {
 
                 <Col>
                   <Card className='p-3 d-flex gap-3 card-project'>
-                    <div className='d-flex justify-content-between div-project'>
+                    <Card.Title className='d-flex justify-content-between div-project'>
 
                       <span className='fs-4'>Project</span>
                       <Button aria-label='New project' className='button-new-project'>+ New</Button>
-                    </div>
-                    <div>
+                    </Card.Title>
+                    <div className='div-projects'>
+                      {projects.projects.map(project => (
 
-                      <div>
-                        <p className='mb-0 fw-semibold'>Develop systems</p>
-                        <p className='text-secondary'>Develop systems with auth</p>
+                        <div>
+                          <p className='mb-0 fw-semibold'>{project.title}</p>
+                          <p className='text-secondary'>{project.description}</p>
+                        </div>
+                      ))}
 
-                      </div>
 
-                      <div>
-                        <p className='mb-0 fw-semibold'>Integrate auth system</p>
-                        <p className='text-secondary'>Integrate user authentication</p>
-
-                      </div>
-
-                      <div>
-                        <p className='mb-0 fw-semibold'>Test automaty</p>
-                        <p className='text-secondary'>Test if automaty is now working</p>
-
-                      </div>
                     </div>
                   </Card>
                 </Col>
               </Row>
               <Row className='mt-2 pb-2'>
                 <Col className='col-5 pb-2'>
-                  <Card className='p-3'>
+                  <Card className='p-4'>
                     <div className='d-flex justify-content-between'>
 
                       <span className='fs-4'>Project Collaboration</span>
@@ -568,7 +581,7 @@ function App() {
                     </ListGroup>
                   </Card>
                 </Col>
-                <Col className='pb-2' >
+                <Col className='pb-2 col-7' >
                   <Card className='p-3 '>
                     <div>
 
@@ -599,12 +612,7 @@ function App() {
                     <div id='donutchart'></div>
                   </Card>
                 </Col>
-                <Col >
-                  <Card className='p-3'>
-                    <span className='fs-4'>Timer Tracker</span>
-
-                  </Card>
-                </Col>
+                
               </Row>
             </Card>
           </Col>
