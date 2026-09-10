@@ -266,7 +266,7 @@ function App() {
 
     var options = {
       title: '',
-      pieHole: 0.6,
+      pieHole: 0.1,
     };
 
     var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
