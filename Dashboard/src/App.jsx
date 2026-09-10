@@ -13,6 +13,7 @@ import { CiSearch } from "react-icons/ci";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaRegBell } from "react-icons/fa";
 import { MdOutlineVideoCameraFront } from "react-icons/md";
+import { useTimer } from 'react-timer-hook'
 
 function App() {
 
@@ -70,6 +71,44 @@ function App() {
     var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
     chart.draw(data, options);
   }
+
+  // function Timer({ expiryTimestamp }) {
+  //   const {
+  //     totalSeconds,
+  //     milliseconds,
+  //     seconds,
+  //     minutes,
+  //     hours,
+  //     days,
+  //     isRunning,
+  //     start,
+  //     pause,
+  //     resume,
+  //     restart,
+  //   } = useTimer({ expiryTimestamp, onExpire: () => console.warn('onExpire called'), interval: 20 })
+  //   return (
+  //     <div style={{ textAlign: 'center' }}>
+
+  //       <div style={{ fontSize: '100px' }}>
+  //        <span>{seconds}</span>:<span>{milliseconds}</span>
+  //       </div>
+  //       <p>{isRunning ? 'Running' : 'Not running'}</p>
+  //       <button onClick={start}>Start</button>
+  //       <button onClick={pause}>Pause</button>
+  //       <button onClick={resume}>Resume</button>
+  //       <button onClick={() => {
+
+  //         const time = new Date();
+  //         time.setSeconds(time.getSeconds() + 300);
+  //         restart(time)
+  //       }}>Restart</button>
+  //     </div>
+  //   );
+  // }
+
+  const time = new Date();
+  time.setSeconds(time.getSeconds() + 600);
+
 
   return (
     <>
@@ -142,7 +181,7 @@ function App() {
                       <CiSearch color='black' size={24} />
                     </InputGroup.Text>
                     <FormControl
-                    aria-label='Search up tasks'
+                      aria-label='Search up tasks'
                       placeholder='Search tasks'
                     />
                   </InputGroup>
@@ -255,7 +294,9 @@ function App() {
                 <Col>
                   <Card className='p-3'>
                     <p className='fs-4'>Reminders</p>
+
                     <p className='fs-3 text-custom-color'>Meeting with arc company</p>
+                    <p className='text-secondary'>Time: 02:00 pm - 04:00 pm</p>
                     <Button aria-label='Start a meeting' className='button-meeting'><MdOutlineVideoCameraFront className='me-2' color='white' size={20} /> Start meeting</Button>
                   </Card>
                 </Col>
@@ -312,7 +353,7 @@ function App() {
                             <p><span className='text-secondary'>Working on</span> <span className='fw-bold'>Github repositories</span></p>
                           </div>
 
-                          <span>Complete</span>
+                          <span className='text-success'>Complete</span>
 
 
 
@@ -349,7 +390,8 @@ function App() {
                 </Col>
                 <Col >
                   <Card className='p-3'>
-                    <span className='fs-4'>Time Tracker</span>
+                    <span className='fs-4'>Timer Tracker</span>
+
                   </Card>
                 </Col>
               </Row>
