@@ -116,7 +116,7 @@
 
 .button-meeting {
     background: linear-gradient(200deg, #1A6241 0%, #347840 100%) !important;
-
+    border: none !important;
 }
 
 .button-new-project, .button-new-member {
