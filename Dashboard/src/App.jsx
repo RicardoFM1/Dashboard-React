@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { Button, Card, Col, Container, FormControl, FormGroup, InputGroup, Row, Stack } from 'react-bootstrap'
 import { LuLayoutDashboard } from "react-icons/lu";
-import { GoTasklist } from "react-icons/go";
+import { GoPlus, GoTasklist } from "react-icons/go";
 import { FaRegCalendar } from "react-icons/fa6";
 import { TbBrandGoogleAnalytics } from "react-icons/tb";
 import { AiOutlineTeam } from "react-icons/ai";
@@ -79,7 +79,7 @@ function App() {
 
           <Col role='main' as={'main'} className='d-flex flex-column gap-5 coluna-2'>
             <Card className='card-2'>
-              <div className='col-4'>
+              <div className='col-4 d-flex align-items-center'>
                 <FormGroup className='border-start-0'>
 
                   <InputGroup className='border-end-0'>
@@ -94,20 +94,119 @@ function App() {
               </div>
 
               <div className='d-flex gap-4 align-items-center'>
-                <MdOutlineEmail size={20}/>
-                <FaRegBell size={20}/>
-                <img src='https://plus.unsplash.com/premium_photo-1739786996022-5ed5b56834e2?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' className='image-profile' alt='Image profile'/>
+                <MdOutlineEmail size={20} />
+                <FaRegBell size={20} />
+                <div className='d-flex gap-3'>
+                  <img src='https://plus.unsplash.com/premium_photo-1739786996022-5ed5b56834e2?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' className='image-profile' alt='Image profile' />
+                  <div>
+
+                    <p className='mb-0'>Mark_toni</p>
+                    <p className='text-secondary'>mark_toni@gmail.com</p>
+                  </div>
+
+                </div>
               </div>
             </Card>
 
 
 
-            <Card className='card-3'>Dashboard (Main)</Card>
+            <Card className='card-3'>
+              <section className='d-flex justify-content-between'>
+                <div>
+                  <h2>Dashboard</h2>
+                  <p className='text-secondary'>Plain, prioritize and accomplish your tasks</p>
+                </div>
+                <div>
+
+                  <Stack direction='horizontal' gap={4}>
+                    <Button className='button-add-project'><GoPlus size={20} /> Add project</Button>
+                    <Button className='button-import-data'>Import Data</Button>
+
+                  </Stack>
+                </div>
+
+              </section>
+              <Row>
+                <Col>
+
+
+                  <Card className='card-1-dashboard'>
+                    <Card.Title className='px-3 pt-3'>
+                      Total Projects
+                    </Card.Title>
+                    <Card.Body className='px-3'>
+                      <span className='fs-1'>24</span>
+                    </Card.Body>
+                    <Card.Footer className='border-top-0 bg-transparent px-3'>
+                      <span className='text-custom-green'>Increased from last month</span>
+                    </Card.Footer>
+                  </Card>
+
+
+
+                </Col>
+                <Col>
+                  <Card>
+                    <Card.Title className='px-3 pt-3'>
+                      Ended Projects
+                    </Card.Title>
+                    <Card.Body className='px-3'>
+                      <span className='fs-1'>10</span>
+                    </Card.Body>
+                    <Card.Footer className='border-top-0 bg-transparent px-3'>
+                      <span className='text-custom-green'>Increased from last month</span>
+                    </Card.Footer>
+                  </Card>
+                </Col>
+
+                <Col>
+                  <Card>
+                    <Card.Title className='px-3 pt-3'>
+                      Running Projects
+                    </Card.Title>
+                    <Card.Body className='px-3'>
+                      <span className='fs-1'>12</span>
+                    </Card.Body>
+                    <Card.Footer className='border-top-0 bg-transparent px-3'>
+                      <span className='text-custom-green'>Increased from last month</span>
+                    </Card.Footer>
+                  </Card>
+                </Col>
+
+                <Col>
+                  <Card>
+                    <Card.Title className='px-3 pt-3'>
+                      Pending Projects
+                    </Card.Title>
+                    <Card.Body className='px-3'>
+                      <span className='fs-1'>2</span>
+                    </Card.Body>
+                    <Card.Footer className='border-top-0 bg-transparent px-3'>
+                      <span className='text-custom-green'>On discuss</span>
+                    </Card.Footer>
+                  </Card>
+                </Col>
+
+              </Row>
+              <Row className='mt-3'>
+                <Col className='col-6 '>
+                  <Card className='px-3 pt-3'>Project Analytics</Card>
+                </Col>
+                <Col>
+                  <Card>Reminders</Card>
+                </Col>
+
+                <Col>
+                  <Card>Project</Card>
+                </Col>
+              </Row>
+            </Card>
           </Col>
 
 
 
         </Row>
+
       </Container>
     </>
   )

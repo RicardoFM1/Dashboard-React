@@ -19,10 +19,11 @@
 }
 
 .card-3 {
-    min-height: 80vh;
+    min-height: 75vh;
+    max-height: 75vh;
 }
 
-.card-2{
+.card-2 {
     display: flex;
     flex-direction: row !important;
     justify-content: space-between;
@@ -74,9 +75,26 @@
 }
 
 
-.image-profile{
+.image-profile {
     width: 48px !important;
     height: 48px !important;
     border-radius: 50%;
     object-fit: cover;
+}
+
+.button-add-project {
+    background: linear-gradient(90deg, #1A6241 0%, #347840 100%) !important;
+    border: none !important;
+    color: white;
+}
+
+.card-1-dashboard{
+    background: linear-gradient(200deg, #1A6241 0%, #347840 100%) !important;
+    color: white !important;
+}
+
+.button-import-data {
+    border: 1px solid #1A6241 !important;
+    background-color: transparent !important;
+    color: #1A6241 !important;
 }
