@@ -228,7 +228,7 @@ function App() {
   })
   const [weekChosen, setWeekChosen] = useState("week1")
   const [projectWeekChosen, setProjectWeekChosen] = useState(projects[weekChosen])
-  const [monthChosen, setMonthChosen] = useState("march")
+  const [monthChosen, setMonthChosen] = useState("january")
   const [projectMonthChosen, setProjectMonthChosen] = useState(projects[monthChosen])
 
   useEffect(() => {
